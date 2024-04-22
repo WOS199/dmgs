@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---- FONTS ---- */
+
+@layer base {
+    @font-face {
+      font-family: NeuethingSans;
+      font-weight: 400;
+      src: url(/public/fonts/NeuethingSans-Regular.woff2) format("woff2");
+    }
+    @font-face {
+      font-family: NeuethingSans;
+      font-weight: 700;
+      src: url(/public/fonts/NeuethingSans-bold.woff2) format("woff2");
+    }
+  }
+
+  /* ---- SCROLL WATCHER ---- */
+
+  .scroll-watcher {
+    scale: 0 1;
+    animation: scroll-watcher linear;
+    animation-timeline: scroll();
+    transform-origin: left;
+  }
+
+  @keyframes scroll-watcher {
+    to {
+      scale: 1 1;
+    }
+  }
+
+  /* ---- WORDS ANIMATION ---- */
+
+  .animation-container {
+    view-timeline-name: --colorChange;
+    animation-timeline: --colorChange;
+    animation-name: backgroundChange;
+    animation-fill-mode: both;
+    animation-duration: 1ms;
+    animation-range: contain 50% contain 100%;
+  }
+
+  #Transformer, #les, #concepts, #creatifs {
+    animation-timeline: --colorChange;
+    animation-name: fadeInAndOut;
+    animation-fill-mode: both;
+    animation-duration: 1ms;
+  }
+
+  #blurTitle {
+    view-timeline-name: --blur;
+    animation-timeline: --blur;
+    animation-name: blurTitle;
+    animation-duration: 1ms;
+    animation-fill-mode: both;
+    animation-range: contain 50% contain 150%;
+  }
+
+  #Transformer {
+    animation-name: fadeInAndOut;
+    animation-range: contain 0% contain 100%;
+  }
+
+  #les {
+    animation-range: contain 10% contain 100%;
+  }
+
+  #concepts {
+    animation-range: contain 20% contain 100%;
+  }
+
+  #creatifs {
+    animation-range: contain 30% contain 100%;
+  }
+
+  #En, #projets, #fonctionnels {
+    animation-timeline: --colorChange;
+    animation-name: fadeIn;
+    animation-fill-mode: both;
+    animation-duration: 1ms;
+  }
+
+  #En {
+    animation-range: contain 60% contain 70%;
+  }
+
+  #projets {
+    animation-range: contain 70% contain 80%;
+  }
+
+  #fonctionnels {
+    animation-range: contain 80% contain 90%;
+  }
+
+  @keyframes fadeInAndOut {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 100
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes backgroundChange {
+    to {
+      background-color: #dbeafe;
+    }
+  }
+
+  @keyframes blurTitle {
+    to {
+      filter: blur(20px);
+    }
+  }
